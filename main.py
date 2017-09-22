@@ -1,12 +1,20 @@
 import csv
 
-
 class DataInfo:
     name = None
     email = None
     mobile = None
     university = None
     major = None
+
+    def __init__(self):
+        name = ""
+        email = ""
+        mobile = ""
+        university = ""
+        major = ""
+
+
 
     def setName(self, name):
         self.name = name
@@ -39,7 +47,7 @@ class DataInfo:
         return self.major
 
 
-print('Please enter data')
+print('Please enter data, to stop enter stop')
 
 nb = None
 dataInfo = [DataInfo()]
@@ -47,17 +55,45 @@ dataInfo = [DataInfo()]
 while (nb != 'stop'):
     data1 = DataInfo()
     nb = input('Enter name: ')
+    if (nb == 'stop'):
+        nb = ''
+        data1.setMajor(nb)
+        dataInfo.append(data1)
+        break
+
     data1.setName(nb)
     nb = input('Enter email: ')
+    if (nb == 'stop'):
+        nb = ''
+        data1.setMajor(nb)
+        dataInfo.append(data1)
+        break
     data1.setEmail(nb)
     nb = input('Enter mobile: ')
+    if (nb == 'stop'):
+        nb = ''
+        data1.setMajor(nb)
+        dataInfo.append(data1)
+        break
     data1.setMobile(nb)
     nb = input('Enter university: ')
+    if (nb == 'stop'):
+        nb = ''
+        data1.setMajor(nb)
+        dataInfo.append(data1)
+        break
     data1.setUniversity(nb)
     nb = input('Enter major: ')
+    if (nb == 'stop'):
+        nb = ''
+        data1.setMajor(nb)
+        dataInfo.append(data1)
+        break
     data1.setMajor(nb)
     dataInfo.append(data1)
-    nb = input('If you want to exit enter stop, if not enter anything to add new data: ')
+
+
+
 
 with open('data.csv', 'w', newline='') as csvfile:
     fieldnames = ['Name', 'Email', 'Mobile', 'University', 'Major']
